@@ -46,7 +46,7 @@ auto evaluate_subtraction(std::stack<double>& stack) -> void
 auto evaluate_division(std::stack<double>& stack) -> void
 {
     if (stack.size() < 2) {
-        throw std::logic_error{"not enough operands for +"};
+        throw std::logic_error{"not enough operands for //"};
     }
     auto const b = pop_top(stack);
     auto const a = pop_top(stack);
@@ -56,7 +56,7 @@ auto evaluate_division(std::stack<double>& stack) -> void
 auto evaluate_division2(std::stack<double>& stack) -> void  // dzielenie z ułamkami
 {
     if (stack.size() < 2) {
-        throw std::logic_error{"not enough operands for +"};
+        throw std::logic_error{"not enough operands for /"};
     }
     auto const b = pop_top(stack);
     auto const a = pop_top(stack);
@@ -65,7 +65,7 @@ auto evaluate_division2(std::stack<double>& stack) -> void  // dzielenie z ułam
 auto evaluate_multiply(std::stack<double>& stack) -> void
 {
     if (stack.size() < 2) {
-        throw std::logic_error{"not enough operands for +"};
+        throw std::logic_error{"not enough operands for *"};
     }
     auto const b = pop_top(stack);
     auto const a = pop_top(stack);
@@ -75,7 +75,7 @@ auto evaluate_multiply(std::stack<double>& stack) -> void
 auto evaluate_mod(std::stack<double>& stack) -> void
 {
     if (stack.size() < 2) {
-        throw std::logic_error{"not enough operands for +"};
+        throw std::logic_error{"not enough operands for %"};
     }
     auto const b = pop_top(stack);
     auto const a = pop_top(stack);
@@ -86,7 +86,7 @@ auto evaluate_mod(std::stack<double>& stack) -> void
 auto evaluate_pot(std::stack<double>& stack) -> void
 {
     if (stack.size() < 2) {
-        throw std::logic_error{"not enough operands for +"};
+        throw std::logic_error{"not enough operands for **"};
     }
     auto const b = pop_top(stack);
     auto const a = pop_top(stack);
@@ -95,18 +95,20 @@ auto evaluate_pot(std::stack<double>& stack) -> void
 }
 auto evaluate_sqrt(std::stack<double>& stack) -> void
 {
-    if (stack.size() < 2) {
-        throw std::logic_error{"not enough operands for +"};
-    }
+   // if (stack.size() < 2) {
+    //    throw std::logic_error{"not enough operands for +"};
+   // }
     auto const b = pop_top(stack);
-    auto const a = pop_top(stack);
-    auto const p = pow(a,1/double(b));
-    stack.push(p);
+  //  auto const a = pop_top(stack);
+  //  auto const p = pow(a,1/double(b));
+
+  //  stack.push(p);
+     stack.push(sqrt(b));
 }
 auto evaluate_nwd(std::stack<double>& stack) -> void
 {
     if (stack.size() < 2) {
-        throw std::logic_error{"not enough operands for +"};
+        throw std::logic_error{"not enough operands for nwd"};
     }
     auto const b = pop_top(stack);
     auto const a = pop_top(stack);
